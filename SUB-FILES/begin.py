@@ -27,7 +27,7 @@ async def begin(ctx):
     strength = 0
     intelligence = 0
     dexterity = 0
-    
+
     with open("playerdata.json", 'r') as file:
         data = json.load(file)
         for i in data["player_stats"]:
