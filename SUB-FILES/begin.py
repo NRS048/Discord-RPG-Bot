@@ -28,7 +28,7 @@ async def begin(ctx):
     intelligence = 0
     dexterity = 0
     
-    with open("playerdata.json",'r') as file:
+    with open("playerdata.json", 'r') as file:
         data = json.load(file)
         for i in data["player_stats"]:
             if i['discid'] == discid:
@@ -77,14 +77,14 @@ async def begin(ctx):
 
         def yn_check(msg):
             return msg.author == ctx.author and msg.channel == ctx.channel and \
-            msg.content.lower() in ["y","n"]
+            msg.content.lower() in ["y", "n"]
 
         await ctx.send("are these your settings?")
         await ctx.send(f"y/n: {discid} {name} {race} {gender} {stealth} {strength} {intelligence} {dexterity}")
         msg = await bot.wait_for("message", check=yn_check, timeout=5)
         if msg.content.lower() == "y":
             await ctx.send("saving profile")
-            with open("playerdata.json",'r+') as file:
+            with open("playerdata.json", 'r+') as file:
                 data = json.load(file)
 
                 def write_json(new_data):
@@ -92,7 +92,7 @@ async def begin(ctx):
                     file.seek(0)
                     json.dump(data, file, indent = 4)
 
-                y = {"discid": discid,"name": name,"race": race,"gender": gender,"coins": 0,"bounty": 0,"level": 1,"xp": 0,"alignment": 0,"characterstats": {"stealth": stealth,"strength": strength,"intelligence": intelligence,"dexterity": dexterity},"inventory":[0],"skilltree":[0],"worldlocation": [0,0,0],"subsquarelocation": [0,0]}
+                y = {"discid": discid, "name": name, "race": race, "gender": gender, "coins": 0, "bounty": 0, "level": 1, "xp": 0, "alignment": 0, "characterstats": {"stealth": stealth, "strength": strength, "intelligence": intelligence, "dexterity": dexterity}, "inventory":[0], "skilltree":[0], "worldlocation": [0,0,0], "subsquarelocation": [0,0]}
                 write_json(y)
                 file.close()
                 return
@@ -100,6 +100,6 @@ async def begin(ctx):
         await ctx.send("Sorry, you didn't reply in time!")
         return
 
-    print(discid,name,race,gender,stealth,strength,intelligence,dexterity)
+    print(discid, name, race, gender, stealth, strength, intelligence, dexterity)
 
 bot.run(TOKEN)
