@@ -103,7 +103,7 @@ async def begin(ctx):
                          "strength": strength,
                          "intelligence": intelligence,
                          "dexterity": dexterity
-                     }
+                     },
                      "inventory": [0],
                      "skilltree": [0],
                      "worldlocation": [0,0,0],
