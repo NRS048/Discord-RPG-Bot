@@ -88,7 +88,27 @@ async def begin(ctx):
                     file.seek(0)
                     json.dump(data, file, indent = 4)
 
-                y = {"discid": discid, "name": name, "race": race, "gender": gender, "coins": 0, "bounty": 0, "level": 1, "xp": 0, "alignment": 0, "characterstats": {"stealth": stealth, "strength": strength, "intelligence": intelligence, "dexterity": dexterity}, "inventory": [0], "skilltree": [0], "worldlocation": [0,0,0], "subsquarelocation": [0,0]}
+                y = {
+                    "discid": discid,
+                     "name": name,
+                     "race": race,
+                     "gender": gender,
+                     "coins": 0,
+                     "bounty": 0,
+                     "level": 1,
+                     "xp": 0,
+                     "alignment": 0,
+                     "characterstats": {
+                         "stealth": stealth,
+                         "strength": strength,
+                         "intelligence": intelligence,
+                         "dexterity": dexterity
+                     }
+                     "inventory": [0],
+                     "skilltree": [0],
+                     "worldlocation": [0,0,0],
+                     "subsquarelocation": [0,0]
+                    }
                 write_json(y)
                 file.close()
                 return
