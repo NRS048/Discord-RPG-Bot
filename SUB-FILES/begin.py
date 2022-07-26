@@ -11,11 +11,13 @@ TOKEN = os.getenv('TOKEN')
 
 bot = commands.Bot(command_prefix='$')
 
+
 @bot.event
 async def on_ready():
     print(f"I am ready to go - {bot.user.name}")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="the dungeon"))
 
+    
 @bot.command()
 async def begin(ctx):
     discid = ctx.author.id
