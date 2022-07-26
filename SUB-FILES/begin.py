@@ -14,12 +14,14 @@ bot = commands.Bot(command_prefix='$')
 
 @bot.event
 async def on_ready():
+    """when the bot comes online"""
     print(f"I am ready to go - {bot.user.name}")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="the dungeon"))
 
-    
+
 @bot.command()
 async def begin(ctx):
+    """when the user typse $begin"""
     discid = ctx.author.id
     name = ""
     race = ""
@@ -88,28 +90,28 @@ async def begin(ctx):
                 def write_json(new_data):
                     data["player_stats"].append(new_data)
                     file.seek(0)
-                    json.dump(data, file, indent = 4)
+                    json.dump(data, file, indent=4)
 
                 y = {
                     "discid": discid,
-                     "name": name,
-                     "race": race,
-                     "gender": gender,
-                     "coins": 0,
-                     "bounty": 0,
-                     "level": 1,
-                     "xp": 0,
-                     "alignment": 0,
-                     "characterstats": {
-                         "stealth": stealth,
-                         "strength": strength,
-                         "intelligence": intelligence,
-                         "dexterity": dexterity
-                     },
+                    "name": name,
+                    "race": race,
+                    "gender": gender,
+                    "coins": 0,
+                    "bounty": 0,
+                    "level": 1,
+                    "xp": 0,
+                    "alignment": 0,
+                    "characterstats": {
+                        "stealth": stealth,
+                        "strength": strength,
+                        "intelligence": intelligence,
+                        "dexterity": dexterity
+                    },
                     "inventory": [0],
                     "skilltree": [0],
-                    "worldlocation": [0,0,0],
-                    "subsquarelocation": [0,0]
+                    "worldlocation": [0, 0, 0],
+                    "subsquarelocation": [0, 0]
                     }
                 write_json(y)
                 file.close()
