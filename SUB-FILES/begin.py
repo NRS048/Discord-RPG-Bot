@@ -13,8 +13,8 @@ bot = commands.Bot(command_prefix='$')
 
 @bot.event
 async def on_ready():
-  print(f"I am ready to go - {bot.user.name}")
-  await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="the dungeon"))
+    print(f"I am ready to go - {bot.user.name}")
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="the dungeon"))
 
 @bot.command()
 async def begin(ctx):
@@ -37,12 +37,10 @@ async def begin(ctx):
 
     try:
         def race_check(msg):
-            return msg.author == ctx.author and msg.channel == ctx.channel and \
-            msg.content.lower() in ["human", "elf", "troll"]
+            return msg.author == ctx.author and msg.channel == ctx.channel and msg.content.lower() in ["human", "elf", "troll"]
 
         def gender_check(msg):
-            return msg.author == ctx.author and msg.channel == ctx.channel and \
-            msg.content.lower() in ["male", "female", "other"]
+            return msg.author == ctx.author and msg.channel == ctx.channel and msg.content.lower() in ["male", "female", "other"]
 
         await ctx.send("what is your character's name?")
         msg = await bot.wait_for("message", timeout=5)
@@ -75,8 +73,7 @@ async def begin(ctx):
             return
 
         def yn_check(msg):
-            return msg.author == ctx.author and msg.channel == ctx.channel and \
-            msg.content.lower() in ["y", "n"]
+            return msg.author == ctx.author and msg.channel == ctx.channel and msg.content.lower() in ["y", "n"]
 
         await ctx.send("are these your settings?")
         await ctx.send(f"y/n: {discid} {name} {race} {gender} {stealth} {strength} {intelligence} {dexterity}")
