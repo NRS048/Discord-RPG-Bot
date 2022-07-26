@@ -104,10 +104,10 @@ async def begin(ctx):
                          "intelligence": intelligence,
                          "dexterity": dexterity
                      },
-                     "inventory": [0],
-                     "skilltree": [0],
-                     "worldlocation": [0,0,0],
-                     "subsquarelocation": [0,0]
+                    "inventory": [0],
+                    "skilltree": [0],
+                    "worldlocation": [0,0,0],
+                    "subsquarelocation": [0,0]
                     }
                 write_json(y)
                 file.close()
