@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "wood"
+        },
+        {
+            "id": 2,
+            "name": "stone"
+        },
+        {
+            "id": 3,
+            "name": "clay"
+        }
+    ]
+}
