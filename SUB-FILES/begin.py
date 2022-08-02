@@ -21,7 +21,7 @@ async def on_ready():
 
 @bot.command()
 async def begin(ctx):
-    """when the user typse $begin"""
+    """when the user types $begin"""
     discid = ctx.author.id
     name = ""
     race = ""
@@ -40,6 +40,9 @@ async def begin(ctx):
                 return
 
     try:
+        def user_check(msg):
+            return msg.author == ctx.author
+
         def race_check(msg):
             return msg.author == ctx.author and msg.channel == ctx.channel and msg.content.lower() in ["human", "elf", "troll"]
 
@@ -47,7 +50,7 @@ async def begin(ctx):
             return msg.author == ctx.author and msg.channel == ctx.channel and msg.content.lower() in ["male", "female", "other"]
 
         await ctx.send("what is your character's name?")
-        msg = await bot.wait_for("message", timeout=5)
+        msg = await bot.wait_for("message", timeout=5, check=user_check)
         name = msg.content
         await ctx.send("what is your character's race?")
         await ctx.send("human, elf, troll")
@@ -60,16 +63,16 @@ async def begin(ctx):
 
         await ctx.send("add charachter stat points, must add upp to 50")
         await ctx.send("stealth")
-        msg = await bot.wait_for("message", timeout=5)
+        msg = await bot.wait_for("message", timeout=5, check=user_check)
         stealth = int(msg.content)
         await ctx.send("strength")
-        msg = await bot.wait_for("message", timeout=5)
+        msg = await bot.wait_for("message", timeout=5, check=user_check)
         strength = int(msg.content)
         await ctx.send("intelligence")
-        msg = await bot.wait_for("message", timeout=5)
+        msg = await bot.wait_for("message", timeout=5, check=user_check)
         intelligence = int(msg.content)
         await ctx.send("dexterity")
-        msg = await bot.wait_for("message", timeout=5)
+        msg = await bot.wait_for("message", timeout=5, check=user_check)
         dexterity = int(msg.content)
 
         if stealth+strength+intelligence+dexterity != 50:
