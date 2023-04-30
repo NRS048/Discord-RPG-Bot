@@ -1,4 +1,4 @@
 # Discord-RRG-Bot|
 a D&D similar game in discord
 
-very early development.
+~~very early development.~~ paused development
